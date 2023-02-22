@@ -10,7 +10,7 @@ public class InputController : MonoBehaviour
 
     private Vector3 desiredPosition;
 
-    public int changeDir;
+    public float changeDir;
 
 
 
@@ -24,14 +24,14 @@ public class InputController : MonoBehaviour
     {
         if (swipeManager.SwipeLeft)
         {
-            if (desiredPosition.x > -3)
+            if (desiredPosition.x > -2)
             {
                 desiredPosition += Vector3.left * changeDir;
             }
         }
         if (swipeManager.SwipeRight)
         {
-            if (desiredPosition.x < 3)
+            if (desiredPosition.x < 2)
             {
                 desiredPosition += Vector3.right * changeDir;
             }
