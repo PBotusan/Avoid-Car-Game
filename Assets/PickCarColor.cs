@@ -19,7 +19,6 @@ public class PickCarColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         if (carSprites.Count > 0)
         {
             int carSprite = Random.Range(0, carSprites.Count);
