@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,10 @@ public class InputController : MonoBehaviour
     private Vector3 desiredPosition;
 
     public float changeDir;
+
+    [SerializeField] WheelTrails trailRenderer;
+
+    
 
 
 
@@ -27,6 +32,8 @@ public class InputController : MonoBehaviour
             if (desiredPosition.x > -2)
             {
                 desiredPosition += Vector3.left * changeDir;
+                trailRenderer.turning = true;
+                trailRenderer.resetTimer = 0.5f;
             }
         }
         if (swipeManager.SwipeRight)
@@ -34,6 +41,8 @@ public class InputController : MonoBehaviour
             if (desiredPosition.x < 2)
             {
                 desiredPosition += Vector3.right * changeDir;
+                trailRenderer.turning = true;
+                trailRenderer.resetTimer = 0.5f;
             }
         }
 
@@ -59,4 +68,5 @@ public class InputController : MonoBehaviour
         player.transform.position = Vector3.MoveTowards(player.transform.position, desiredPosition, 15f * Time.deltaTime);
 
     }
+
 }
