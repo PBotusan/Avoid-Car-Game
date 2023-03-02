@@ -9,14 +9,13 @@ public class WheelTrails : MonoBehaviour
 
     public bool turning;
 
-    public float resetTimer = 0.5f;
+    public float resetTimer = 0.4f;
 
 
     // Start is called before the first frame update
     void Start()
     {
         trailRendererLeft.emitting = false;
-
         trailRendererRight.emitting = false;
     }
 
@@ -41,13 +40,10 @@ public class WheelTrails : MonoBehaviour
         {
             trailRendererLeft.emitting = false;
             trailRendererRight.emitting = false;
+
             turning = false;
-            resetTimer = .5f;
+            resetTimer = .4f;
         }
-        
-
-       
-
     }
 
 }

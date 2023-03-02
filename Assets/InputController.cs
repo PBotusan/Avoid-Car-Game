@@ -33,7 +33,7 @@ public class InputController : MonoBehaviour
             {
                 desiredPosition += Vector3.left * changeDir;
                 trailRenderer.turning = true;
-                trailRenderer.resetTimer = 0.5f;
+                trailRenderer.resetTimer = 0.4f;
             }
         }
         if (swipeManager.SwipeRight)
@@ -42,7 +42,7 @@ public class InputController : MonoBehaviour
             {
                 desiredPosition += Vector3.right * changeDir;
                 trailRenderer.turning = true;
-                trailRenderer.resetTimer = 0.5f;
+                trailRenderer.resetTimer = 0.4f;
             }
         }
 

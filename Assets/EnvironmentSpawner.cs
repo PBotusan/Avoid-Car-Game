@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnvironmentSpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> chunks;
+
     [SerializeField] float offset = 20f;
 
     // Start is called before the first frame update
@@ -22,6 +23,14 @@ public class EnvironmentSpawner : MonoBehaviour
         chunks.Remove(movedChunk);
         float newYPosition = chunks[chunks.Count - 1].transform.position.y + offset;
         movedChunk.transform.position = new Vector2(0, newYPosition);
+
+        movedChunk.gameObject.SetActive(false);
+        movedChunk.gameObject.SetActive(true);
+     
+
         chunks.Add(movedChunk);
+
     }
+
+
 }

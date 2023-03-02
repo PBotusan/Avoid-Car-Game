@@ -5,19 +5,11 @@ using UnityEngine;
 public class PickCarColor : MonoBehaviour
 {
     [SerializeField] private List<Sprite> carSprites;
-
     [SerializeField] private SpriteRenderer spriteRenderer;
 
 
 
     private void OnEnable()
-    {
-
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
     {
         if (carSprites.Count > 0)
         {
@@ -25,6 +17,8 @@ public class PickCarColor : MonoBehaviour
             spriteRenderer.sprite = carSprites[carSprite];
         }
     }
+
+
 
     // Update is called once per frame
     void Update()
