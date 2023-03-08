@@ -63,9 +63,17 @@ public class InputController : MonoBehaviour
         }
         */
 
+        // go faster after time
+
+        if (player.playerSpeed < 30)
+        {
+            player.playerSpeed += 0.001f;
+        }
+      
+
         desiredPosition.y = player.transform.position.y + changeDir;
 
-        player.transform.position = Vector3.MoveTowards(player.transform.position, desiredPosition, 15f * Time.deltaTime);
+        player.transform.position = Vector3.MoveTowards(player.transform.position, desiredPosition, player.playerSpeed * Time.deltaTime);
 
     }
 
