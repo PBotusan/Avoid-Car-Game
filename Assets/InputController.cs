@@ -15,6 +15,7 @@ public class InputController : MonoBehaviour
 
     GameManager gameManager;
 
+    bool songActive = false;
 
 
     // Start is called before the first frame update
@@ -68,6 +69,14 @@ public class InputController : MonoBehaviour
 
         if (gameManager.currentGameState == GameManager.GameState.LevelRunning)
         {
+           
+            if (!songActive)
+            {
+                FindObjectOfType<SoundManager>().Play("song");
+                songActive = true;
+            }
+
+
             if (player.playerSpeed < 30)
             {
                 player.playerSpeed += 0.001f;
@@ -81,6 +90,13 @@ public class InputController : MonoBehaviour
 
         if (gameManager.currentGameState == GameManager.GameState.GameOver)
         {
+            if (songActive)
+            {
+                FindObjectOfType<SoundManager>().Stop("song");
+                songActive = false;
+            }
+            
+
             if (swipeManager.SwipeLeft || swipeManager.SwipeRight)
             {  //todo after seconds
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);

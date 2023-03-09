@@ -26,9 +26,12 @@ public class ShowScore : MonoBehaviour
     // Update is called once per frame
     public void UpdateScore()
     {
-        scoreAmount += Time.deltaTime;
+        if (gameManager.currentGameState == GameManager.GameState.LevelRunning)
+        {
+            scoreAmount += Time.deltaTime;
 
-        score.text = "Time escaped:  " + ((int)scoreAmount);
-        // score.text = "Cars Passed" + gameManager.currentScore.ToString();
+            score.text = "Time escaped:  " + ((int)scoreAmount);
+            // score.text = "Cars Passed" + gameManager.currentScore.ToString();
+        }
     }
 }

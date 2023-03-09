@@ -60,6 +60,8 @@ public class SoundManager : MonoBehaviour
         // Add this part after having a theme song
         // Play('Theme');
     }
+
+
     public void Play(string name)
     {
         Sound sound = Array.Find(sounds, s => s.name == name);
