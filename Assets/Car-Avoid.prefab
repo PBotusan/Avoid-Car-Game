@@ -165,6 +165,8 @@ MonoBehaviour:
   startPos: {fileID: 0}
   speed: 500
   car: {fileID: 4628621163068205907}
+  forceMagnitude: 0.01
+  duration: 1
 --- !u!50 &4628621163068205907
 Rigidbody2D:
   serializedVersion: 4
@@ -173,7 +175,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3418759645051417168}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

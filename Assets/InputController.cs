@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class InputController : MonoBehaviour
@@ -15,7 +13,7 @@ public class InputController : MonoBehaviour
 
     [SerializeField] WheelTrails trailRenderer;
 
-    
+    GameManager gameManager;
 
 
 
@@ -24,6 +22,8 @@ public class InputController : MonoBehaviour
     {
         //start pos player
         desiredPosition = player.transform.position;
+        GameObject gameManagerAsGameobject = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = gameManagerAsGameobject.GetComponent<GameManager>();
     }
     void Update()
     {
@@ -64,17 +64,34 @@ public class InputController : MonoBehaviour
         */
 
         // go faster after time
+       
 
-        if (player.playerSpeed < 30)
+        if (gameManager.currentGameState == GameManager.GameState.LevelRunning)
         {
-            player.playerSpeed += 0.001f;
+            if (player.playerSpeed < 30)
+            {
+                player.playerSpeed += 0.001f;
+            }
+
+            desiredPosition.y = player.transform.position.y + changeDir;
+
+            player.transform.position = Vector3.MoveTowards(player.transform.position, desiredPosition, player.playerSpeed * Time.deltaTime);
+
         }
-      
 
-        desiredPosition.y = player.transform.position.y + changeDir;
-
-        player.transform.position = Vector3.MoveTowards(player.transform.position, desiredPosition, player.playerSpeed * Time.deltaTime);
-
+        if (gameManager.currentGameState == GameManager.GameState.GameOver)
+        {
+            if (swipeManager.SwipeLeft || swipeManager.SwipeRight)
+            {  //todo after seconds
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
+        else if (gameManager.currentGameState == GameManager.GameState.GetReady)
+        {
+            if (swipeManager.SwipeLeft || swipeManager.SwipeRight)
+            {
+                gameManager.currentGameState = GameManager.GameState.LevelRunning;
+            }
+        }
     }
-
 }

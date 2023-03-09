@@ -5,10 +5,7 @@ public class ShowScore : MonoBehaviour
 {
 
     public TextMeshProUGUI score;
-
     float scoreAmount;
-
-
     GameManager gameManager;
 
     // Start is called before the first frame update
