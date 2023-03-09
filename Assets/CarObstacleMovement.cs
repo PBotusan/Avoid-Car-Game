@@ -39,7 +39,7 @@ public class CarObstacleMovement : MonoBehaviour
     {
         if (gameManager.currentGameState == GameManager.GameState.GameOver)
         {
-            car.velocity -= Vector2.zero;
+            car.velocity = transform.up * 0 * Time.deltaTime;
             //todo make the car crash
             /*
             if (timeLeft > 0f)
