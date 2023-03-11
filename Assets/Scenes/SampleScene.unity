@@ -1432,6 +1432,7 @@ GameObject:
   - component: {fileID: 1494369557}
   - component: {fileID: 1494369559}
   - component: {fileID: 1494369558}
+  - component: {fileID: 1494369560}
   m_Layer: 0
   m_Name: LevelGeneration
   m_TagString: LevelGeneration
@@ -1486,6 +1487,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354356105f23d3246bc785b9a0b07b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1494369560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494369556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ac4bffd7400c54b998cf56669519cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefab: {fileID: 3418759645051417168, guid: a43fffd28bd346b44af46681f8751bfe, type: 3}
+  player: {fileID: 1073702534}
 --- !u!1 &1736596951
 GameObject:
   m_ObjectHideFlags: 0

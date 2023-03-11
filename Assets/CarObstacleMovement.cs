@@ -3,7 +3,7 @@ using UnityEngine;
 public class CarObstacleMovement : MonoBehaviour
 {
 
-    [SerializeField] GameObject startPos;
+   // [SerializeField] GameObject startPos;
 
     [SerializeField] float speed;
 
@@ -15,7 +15,7 @@ public class CarObstacleMovement : MonoBehaviour
 
     float forceMagnitude = 0.1f;
 
-    public float duration = 1f;
+    public float duration = 5f;
     private float timeLeft = 0f;
 
 
@@ -31,7 +31,8 @@ public class CarObstacleMovement : MonoBehaviour
     private void OnEnable()
     {
         //reset pos
-        car.position = startPos.transform.position;
+        //  car.position = startPos.transform.position;
+        duration = 5f;
     }
 
     // Update is called once per frame
@@ -55,6 +56,14 @@ public class CarObstacleMovement : MonoBehaviour
         else
         {
             car.velocity = transform.up * speed * Time.deltaTime;
+
+            
+            duration -= Time.deltaTime;
+
+            if (duration < 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }
