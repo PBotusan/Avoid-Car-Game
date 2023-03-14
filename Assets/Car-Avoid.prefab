@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4628621163068205907}
   m_Layer: 0
   m_Name: Car-Avoid
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,11 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891279cd0bfec9a4296a675787b4feab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {fileID: 0}
   speed: 500
   car: {fileID: 4628621163068205907}
-  forceMagnitude: 0.01
-  duration: 1
 --- !u!50 &4628621163068205907
 Rigidbody2D:
   serializedVersion: 4

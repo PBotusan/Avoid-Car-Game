@@ -28,7 +28,7 @@ public class CarSpawner : MonoBehaviour
     private int currentSpawnPointIndex = 0;
 
 
-    [SerializeField] private int poolSize = 4;
+    [SerializeField] private int poolSize = 5;
     private List<GameObject> carPool = new List<GameObject>();
 
 
@@ -70,7 +70,7 @@ public class CarSpawner : MonoBehaviour
             if (car != null)
             {
                 //random value between 10 and max offset
-                float randomValue = UnityEngine.Random.Range(25, offset + 1f);
+                float randomValue = UnityEngine.Random.Range(20, offset);
 
 
                 // Position the car above the player with an offset

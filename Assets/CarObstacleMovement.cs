@@ -15,7 +15,7 @@ public class CarObstacleMovement : MonoBehaviour
 
     float forceMagnitude = 0.1f;
 
-    public float duration = 5f;
+ //   public float duration = 5f;
     private float timeLeft = 0f;
 
 
@@ -25,14 +25,14 @@ public class CarObstacleMovement : MonoBehaviour
         GameObject gamemanagerAsGameobject = GameObject.FindGameObjectWithTag("GameManager");
         gameManager = gamemanagerAsGameobject.GetComponent<GameManager>();
 
-        timeLeft = duration;
+      //  timeLeft = duration;
     }
 
     private void OnEnable()
     {
         //reset pos
         //  car.position = startPos.transform.position;
-        duration = 5f;
+     //   duration = 5f;
     }
 
     // Update is called once per frame
@@ -58,12 +58,13 @@ public class CarObstacleMovement : MonoBehaviour
             car.velocity = transform.up * speed * Time.deltaTime;
 
             
+            /*
             duration -= Time.deltaTime;
 
             if (duration < 0)
             {
                 gameObject.SetActive(false);
-            }
+            }*/
         }
     }
 }
