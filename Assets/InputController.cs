@@ -80,6 +80,8 @@ public class InputController : MonoBehaviour
             if (player.playerSpeed < 40)
             {
                 player.playerSpeed += 0.001f;
+
+                gameManager.playerSpeed = player.playerSpeed;
             }
 
             desiredPosition.y = player.transform.position.y + changeDir;

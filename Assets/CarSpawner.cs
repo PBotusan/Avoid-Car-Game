@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CarSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject carPrefab; // the prefab of the object to spawn
+    [SerializeField] GameObject[] carPrefab; // the prefab of the object to spawn
     [SerializeField] PlayerController player;
 
     [SerializeField] float disableTime = 10f; // The amount of time after which the car gets disabled
@@ -39,9 +39,15 @@ public class CarSpawner : MonoBehaviour
         carSpawnPoints[0] = new Vector3(2.3f,0,0);
         carSpawnPoints[1] = new Vector3(-2.3f, 0, 0);
 
+
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject car = Instantiate(carPrefab, Vector3.zero, Quaternion.identity);
+            int prefabIndex = i % 2;
+
+            GameObject car = Instantiate(carPrefab[prefabIndex], Vector3.zero, Quaternion.identity);
+
+            car.transform.rotation = Quaternion.Euler(0, 0, 180);
+                        
             car.SetActive(false);
             carPool.Add(car);
         }
@@ -71,7 +77,6 @@ public class CarSpawner : MonoBehaviour
             {
                 //random value between 10 and max offset
                 float randomValue = UnityEngine.Random.Range(20, offset);
-
 
                 // Position the car above the player with an offset
                 Vector3 spawnPosition = new Vector3(carSpawnPoints[currentSpawnPointIndex].x, player.transform.position.y + randomValue, carSpawnPoints[currentSpawnPointIndex].z);
