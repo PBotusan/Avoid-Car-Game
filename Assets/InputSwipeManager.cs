@@ -20,6 +20,7 @@ public class InputSwipeManager : MonoBehaviour
 
     private void ResetValues()
     {
+        tap = false;
         isDragging = false;
         startTouch = swipeDelta = Vector2.zero;
     }
@@ -28,7 +29,7 @@ public class InputSwipeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
+        //tap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -38,7 +39,7 @@ public class InputSwipeManager : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            isDragging = false;
+           // isDragging = false;
             ResetValues();
         }
 
@@ -52,7 +53,7 @@ public class InputSwipeManager : MonoBehaviour
             }
             else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
             {
-                isDragging = false;
+                //isDragging = false;
                 ResetValues();
 
             }

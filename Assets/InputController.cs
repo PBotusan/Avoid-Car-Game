@@ -98,10 +98,11 @@ public class InputController : MonoBehaviour
                 songActive = false;
             }
             
-
-            if (swipeManager.SwipeLeft || swipeManager.SwipeRight)
+            
+            if (swipeManager.SwipeLeft || swipeManager.SwipeRight || swipeManager.Tap)
             {  //todo after seconds
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
             }
         }
         else if (gameManager.currentGameState == GameManager.GameState.GetReady)
